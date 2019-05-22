@@ -1,5 +1,6 @@
 function registerServiceWorker() {
-    navigator.serviceWorker.register('/sw.js').then(function (reg) {        
+    navigator.serviceWorker.register('/sw.js').then(function (reg) {
+        console.log('ServiceWorker registration successful with scope');
     });
 
     // Ensure refresh is only called once.
@@ -12,6 +13,8 @@ function registerServiceWorker() {
     });
 }
 
-if (navigator.serviceWorker) {
-    registerServiceWorker();
-}
+window.addEventListener('load', function() {
+    if (navigator.serviceWorker) {
+        registerServiceWorker();
+    }
+});
